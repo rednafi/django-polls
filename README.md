@@ -9,7 +9,7 @@
 
 ## What?
 
-This is the canonical `polls` app from the Django tutorial.
+This is the canonical `polls` app from the Django [tutorial](https://docs.djangoproject.com/en/4.0/intro/).
 
 ## Why?
 
@@ -23,7 +23,7 @@ Experimenting with Django requires you to write a whole bunch of boilerplate cod
 
 * In your Django project's `settings.py` file, add `polls.apps.PollsConfig` to the `INSTALLED_APPS` section.
 
-* Start using the components of the `polls` app. Inspect the source to see what models and views are included in the app. It's exactly the same as the polls [tutorial](https://docs.djangoproject.com/en/4.0/intro/).
+* Start using the components of the `polls` app. Inspect the [source](./django-polls) to see what models and views are included in the app. It's exactly the same as the polls [tutorial](https://docs.djangoproject.com/en/4.0/intro/).
 
 
 ### Use As an App
