@@ -17,8 +17,26 @@ Experimenting with Django requires you to write a whole bunch of boilerplate cod
 
 ## Quickstart
 
+### Use As a Library
+
+* Run `pip install django-polls-rednafi`.
+
+* In your Django project's `settings.py` file, add `polls.apps.PollsConfig` to the `INSTALLED_APPS` section.
+
+* Start using the components of the `polls` app. Inspect the source to see what models and views are included in the app. It's exactly the same as the polls [tutorial](https://docs.djangoproject.com/en/4.0/intro/).
 
 
+### Use As an App
+
+If you want the entire app and not only the reusable models and view, then:
+
+* Clone this repo.
+
+* Go to `django-polls`.
+
+* Run `python manage.py makemigrations && python manage.py migrate`.
+
+* Go to `http://localhost:8000/polls/` and start using the app.
 
 
 <div align="center">

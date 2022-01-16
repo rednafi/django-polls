@@ -1,0 +1,6 @@
+include LICENSE
+include README.md
+
+recursive-include django-polls/templates *
+recursive-include django-polls/polls/static *
+recursive-include django-polls/polls/templates *

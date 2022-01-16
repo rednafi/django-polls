@@ -21,4 +21,3 @@ class QuestionAdmin(admin.ModelAdmin):
 
 
 admin.site.register(models.Question, QuestionAdmin)
-import django

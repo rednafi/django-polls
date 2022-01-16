@@ -1,16 +1,7 @@
 path := .
 
-define Comment
-	- Run `make help` to see all the available options.
-	- Run `make lint` to run the linter.
-	- Run `make lint-check` to check linter conformity.
-	- Run `dep-lock` to lock the deps in 'requirements.txt' and 'requirements-dev.txt'.
-	- Run `dep-sync` to sync current environment up to date with the locked deps.
-endef
-
-
 .PHONY: lint
-lint: black isort flake mypy	## Apply all the linters.
+lint: black isort flake	## Apply all the linters.
 
 
 .PHONY: lint-check
@@ -20,7 +11,6 @@ lint-check:  ## Check whether the codebase satisfies the linter rules.
 	@echo "========================"
 	@echo
 	@make lint-check
-	@echo 'y' | mypy $(path) --install-types
 
 
 .PHONY: black
@@ -50,15 +40,6 @@ flake: ## Apply flake8.
 	@flake8 $(path)
 
 
-.PHONY: mypy
-mypy: ## Apply mypy.
-	@echo
-	@echo "Applying mypy..."
-	@echo "================="
-	@echo
-	@mypy $(path)
-
-
 .PHONY: help
 help: ## Show this help message.
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
@@ -66,7 +47,14 @@ help: ## Show this help message.
 
 .PHONY: test
 test: ## Run the tests against the current version of Python.
-	pytest
+	@cd django-polls && python manage.py test
+
+
+.PHONY: migrate
+migrate: ## Run the tests against the current version of Python.
+	@cd django-polls \
+    && python manage.py makemigrations \
+	&& python manage.py migrate
 
 
 .PHONY: dep-lock
@@ -86,7 +74,7 @@ install: ## Install all the dev dependencies and the app locally.
 
 .PHONY: build
 build: ## Build the app.
-	@rm -rf build/ dist/
+	@rm -rf dist
 	@python -m build
 
 
