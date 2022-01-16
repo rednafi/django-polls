@@ -71,10 +71,25 @@ test: ## Run the tests against the current version of Python.
 
 .PHONY: dep-lock
 dep-lock: ## Freeze deps in 'requirements.txt' file.
-	@pip-compile requirements.in -o requirements.txt
 	@pip-compile requirements-dev.in -o requirements-dev.txt
 
 
 .PHONY: dep-sync
 dep-sync: ## Sync venv installation with 'requirements.txt' file.
 	@pip-sync
+
+
+.PHONY: install
+install: ## Install all the dev dependencies and the app locally.
+	@pip install -e .[dev_deps]
+
+
+.PHONY: build
+build: ## Build the app.
+	@rm -rf build/ dist/
+	@python -m build
+
+
+.PHONY: upload
+upload: build ## Build and upload to PYPI.
+	@twine upload dist/*
