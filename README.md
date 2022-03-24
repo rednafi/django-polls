@@ -1,6 +1,6 @@
 <h1>Django Polls<img src='https://user-images.githubusercontent.com/30027932/149640721-177e46fc-f108-4cd7-a379-5446b414fd32.png' align='right' width='128' height='128'></h1>
 
-<strong>>> <i>Django Polls App for Experimentation</i> <<</strong>
+<strong>>> <i>Django polls app for experimentation</i> <<</strong>
 
 </div>
 
@@ -17,7 +17,7 @@ Experimenting with Django requires you to write a whole bunch of boilerplate cod
 
 ## Quickstart
 
-### Use As a Library
+### Use as a library
 
 * Run `pip install django-polls-rednafi`.
 
@@ -26,7 +26,7 @@ Experimenting with Django requires you to write a whole bunch of boilerplate cod
 * Start using the components of the `polls` app. Inspect the [source](./django-polls) to see what models and views are included in the app. It's exactly the same as the polls [tutorial](https://docs.djangoproject.com/en/4.0/intro/).
 
 
-### Use As an App
+### Use as an app
 
 If you want the entire app and not only the reusable models and view, then:
 
